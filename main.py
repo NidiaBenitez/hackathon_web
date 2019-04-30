@@ -92,21 +92,21 @@ def detectar_lugar2():
 
 
 @app.route("/")
-def index1():
+def index2():
     datos = {'sensor1':d1,
             'sensor2':d2}
-    return render_template("index1.html",msg = datos)
+    return render_template("index2.html",msg = datos)
 
 #Bucle principal del programa, lee el sensor. Se sale con CTRL+C
 while True:
    try:
       d1=detectar_lugar1()              #ahora guardamos los valores retornados al llamar las funciones
       d2=detectar_lugar2()              # para luego con los if relacionar para definir si esta o no libre 
-      if d1>=70:                        #para esta maqueta se hara en miniatura por lo cual los valores son
+      if d1>=14.5:                        #para esta maqueta se hara en miniatura por lo cual los valores son
          print("libre espacio 1")       #realmente muy pequeños pero si es para un estacionamiento estandar
       else:                             #se deben usar los valores de la descripcion 
          print("ocupado espacio 1")
-      if 70<=d2:
+      if 14.5<=d2:
          print("libre espacio 2")
       else:
          print("ocupado espacio 2")
